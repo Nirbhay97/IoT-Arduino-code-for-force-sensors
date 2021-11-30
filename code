@@ -1,0 +1,30 @@
+
+
+#define NOTE_B0  31
+#define NOTE_C1  33
+#define NOTE_CS1 35
+const int threshold = 10;  
+
+int notes[] = {
+  NOTE_B0,NOTE_C1,NOTE_CS1
+};
+
+void setup() {
+  
+  pinMode(A0,INPUT);
+  pinMode(A1,INPUT);
+  pinMode(A2,INPUT);
+
+}
+
+void loop() {
+  for (int Sensor = 0; Sensor < 3; Sensor++) {
+    
+    int sensorReading = analogRead(Sensor);
+
+     if (sensorReading > threshold) {
+    
+      tone(8, notes[Sensor], 20);
+    }
+  }
+}
